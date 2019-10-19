@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00818A"
+    android:background="#0B1016"
     android:orientation="vertical"
     android:padding="20dp"
     tools:context=".activities.LoginActivity">
@@ -13,9 +13,9 @@
     <ImageView
         android:id="@+id/IVlogo"
         android:layout_width="wrap_content"
-        android:layout_height="242dp"
+        android:layout_height="229dp"
         android:layout_marginTop="50dp"
-        tools:src="@tools:sample/backgrounds/scenic[9]" />
+        android:src="@drawable/logo" />
 
     <TextView
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
         android:layout_marginTop="50dp"
         android:gravity="center"
         android:text="@string/app_name"
-        android:textColor="#940A37"
+        android:textColor="@android:color/white"
         android:textSize="35sp" />
 
     <com.google.android.gms.common.SignInButton
@@ -31,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="200dp" />
+        android:layout_marginTop="170dp" />
 
 
 </LinearLayout>
