@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Dabbler</string>
+    <string name="app_name">Hedwig</string>
     <string name="sign_in_otp">Sign In OTP</string>
     <string name="sign_in_with_otp">SIGN IN WITH OTP</string>
     <string name="sign_in_with_google">SIGN IN WITH GOOGLE</string>
