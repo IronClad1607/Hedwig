@@ -19,8 +19,8 @@
 bin/
 gen/
 out/
- Google Services (e.g. APIs or Firebase)
-google-services.json
+# Google Services (e.g. APIs or Firebase)
+*.json
 # Gradle files
 .gradle
 .gradle/
