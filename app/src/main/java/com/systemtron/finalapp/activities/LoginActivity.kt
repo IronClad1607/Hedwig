@@ -34,20 +34,18 @@ class LoginActivity : AppCompatActivity() {
             .requestEmail()
             .build()
 
+        if (auth.currentUser != null) {
+            finish()
+            val loginIntent = Intent(applicationContext, SearchActivity::class.java)
+            startActivity(loginIntent)
+        }
+
         mGoogleSigninClient = GoogleSignIn.getClient(this, gso)
 
         btnSignin.setOnClickListener {
             signIn()
         }
 
-    }
-
-
-    override fun onStart() {
-        super.onStart()
-        if (auth.currentUser != null) {
-            Toast.makeText(this, "Already Login!", Toast.LENGTH_LONG).show()
-        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -74,6 +72,8 @@ class LoginActivity : AppCompatActivity() {
                 if (it.isSuccessful) {
                     val user = auth.currentUser
                     Toast.makeText(this, "User Signed In", Toast.LENGTH_LONG).show()
+                    val loginIntent = Intent(applicationContext, SearchActivity::class.java)
+                    startActivity(loginIntent)
                 } else {
                     Toast.makeText(this, "Auth Failed", Toast.LENGTH_LONG).show()
 
