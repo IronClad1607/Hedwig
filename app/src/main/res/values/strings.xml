@@ -3,4 +3,6 @@
     <string name="sign_in_otp">Sign In OTP</string>
     <string name="sign_in_with_otp">SIGN IN WITH OTP</string>
     <string name="sign_in_with_google">SIGN IN WITH GOOGLE</string>
+    <string name="enter_phone_number">Enter Phone Number :</string>
+    <string name="verify">Verify</string>
 </resources>
