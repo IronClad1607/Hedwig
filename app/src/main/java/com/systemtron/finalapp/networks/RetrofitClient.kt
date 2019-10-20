@@ -9,4 +9,6 @@ object RetrofitClient {
         .baseUrl("https://www.googleapis.com")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
+
+    val resultAPI = retrofit().create(ResultAPI::class.java)
 }
