@@ -50,7 +50,8 @@ class SearchActivity : AppCompatActivity(), CoroutineScope {
                         super.onScrolled(recyclerView, dx, dy)
                         lastVisibleItemId = lMResults.findLastVisibleItemPosition()
                         if (lastVisibleItemId == mResults.size - 1 && !loadingMore) {
-                            loadMore(iResults + 10)
+                            iResults+=10
+                            loadMore(iResults)
                         }
                     }
                 })
