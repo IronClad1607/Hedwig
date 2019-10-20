@@ -39,6 +39,12 @@ class ResultAdapter(private val results: ArrayList<Item>) :
                 tvTitle.text = item.title
                 tvsnippet.text = item.snippet
                 try {
+                    Picasso.get().load(item.pagemap.cse_image[0].src).fit().into(imgThumb)
+                } catch (e: NullPointerException) {
+                    imgThumb.setColorFilter(Color.WHITE)
+                }
+
+                try {
                     Picasso.get().load(item.pagemap.cse_thumbnail[0].src).fit().into(imgSnippet)
                 } catch (e: NullPointerException) {
                     imgSnippet.setColorFilter(Color.WHITE)
