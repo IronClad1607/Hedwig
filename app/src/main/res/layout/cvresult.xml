@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
     android:elevation="8dp"
     android:padding="20dp"
-    android:layout_marginBottom="10dp"
-    android:layout_marginTop="10dp"
     app:cardCornerRadius="10dp">
 
     <LinearLayout
@@ -19,19 +19,34 @@
             android:id="@+id/tvURL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
             tools:text="URL" />
 
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:textColor="#00008b"
+            android:textSize="20sp"
+            android:textStyle="bold"
             tools:text="Title" />
 
-        <TextView
-            android:id="@+id/tvsnippet"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:text="@string/random" />
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvsnippet"
+                android:layout_width="300dp"
+                android:layout_height="match_parent"
+                android:textColor="@android:color/black"
+                tools:text="@string/random" />
+
+            <ImageView
+                android:id="@+id/imgSnippet"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

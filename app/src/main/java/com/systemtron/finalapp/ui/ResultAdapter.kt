@@ -1,13 +1,16 @@
 package com.systemtron.finalapp.ui
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import com.systemtron.finalapp.R
 import com.systemtron.finalapp.modals.Item
 import kotlinx.android.synthetic.main.cvresult.view.*
+import java.lang.NullPointerException
 
 class ResultAdapter(private val results: ArrayList<Item>) :
     RecyclerView.Adapter<ResultAdapter.ViewHolder>() {
@@ -30,6 +33,11 @@ class ResultAdapter(private val results: ArrayList<Item>) :
                 tvURL.text = item.link
                 tvTitle.text = item.title
                 tvsnippet.text = item.snippet
+                try {
+                    Picasso.get().load(item.pagemap.cse_thumbnail[0].src).fit().into(imgSnippet)
+                }catch (e:NullPointerException){
+                    imgSnippet.setColorFilter(Color.WHITE)
+                }
             }
         }
     }
