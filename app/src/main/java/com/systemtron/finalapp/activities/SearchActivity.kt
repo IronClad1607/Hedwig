@@ -1,13 +1,16 @@
 package com.systemtron.finalapp.activities
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.inputmethod.InputMethodManager
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.systemtron.finalapp.R
+import com.systemtron.finalapp.modals.Context
 import com.systemtron.finalapp.modals.Item
 import com.systemtron.finalapp.networks.RetrofitClient
 import com.systemtron.finalapp.ui.ResultAdapter
@@ -36,6 +39,13 @@ class SearchActivity : AppCompatActivity(), CoroutineScope {
         btnSearch.setOnClickListener {
             val searchString = etSearch.text.toString()
 
+            val inputManager: InputMethodManager =
+                getSystemService(android.content.Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputManager.hideSoftInputFromWindow(
+                currentFocus?.windowToken,
+                InputMethodManager.HIDE_NOT_ALWAYS
+            )
+
             searchStringNoSpace = searchString.replace(" ", "+")
             launch {
                 val lMResults =
@@ -50,7 +60,7 @@ class SearchActivity : AppCompatActivity(), CoroutineScope {
                         super.onScrolled(recyclerView, dx, dy)
                         lastVisibleItemId = lMResults.findLastVisibleItemPosition()
                         if (lastVisibleItemId == mResults.size - 1 && !loadingMore) {
-                            iResults+=10
+                            iResults += 10
                             loadMore(iResults)
                         }
                     }
@@ -72,7 +82,7 @@ class SearchActivity : AppCompatActivity(), CoroutineScope {
         val resultAPI = RetrofitClient.resultAPI
 
         val response = resultAPI.getResults(url, startCount)
-        Log.d("PUI","$response")
+        Log.d("PUI", "$response")
         if (response.isSuccessful) {
             val nResult: ArrayList<Item>? = response.body()?.items
             if (loadingMore) {
