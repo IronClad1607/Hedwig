@@ -17,21 +17,30 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:fontFamily="@font/magic"
         android:gravity="center"
         android:text="@string/app_name"
         android:textColor="@android:color/white"
-        android:textSize="35sp" />
+        android:textSize="80sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/magic"
+        android:gravity="center"
+        android:text="@string/let_hedwig_get_that_for_you"
+        android:textColor="@android:color/white"
+        android:textSize="30sp" />
 
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
-        android:layout_gravity="center"
-        android:layout_marginTop="300dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="180dp" />
 
 
 </LinearLayout>
