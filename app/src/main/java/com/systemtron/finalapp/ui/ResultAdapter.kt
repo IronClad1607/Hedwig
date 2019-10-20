@@ -1,10 +1,15 @@
 package com.systemtron.finalapp.ui
 
+import android.content.ActivityNotFoundException
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.systemtron.finalapp.R
@@ -35,8 +40,21 @@ class ResultAdapter(private val results: ArrayList<Item>) :
                 tvsnippet.text = item.snippet
                 try {
                     Picasso.get().load(item.pagemap.cse_thumbnail[0].src).fit().into(imgSnippet)
-                }catch (e:NullPointerException){
+                } catch (e: NullPointerException) {
                     imgSnippet.setColorFilter(Color.WHITE)
+                }
+
+
+                setOnClickListener {
+                    val i = Intent()
+                    i.action = Intent.ACTION_VIEW
+                    i.data = Uri.parse(item.link)
+
+                    try {
+                        startActivity(context, i, null)
+                    } catch (e: ActivityNotFoundException) {
+                        Toast.makeText(context, "Cant Move Forward!", Toast.LENGTH_LONG).show()
+                    }
                 }
             }
         }

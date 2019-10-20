@@ -8,6 +8,7 @@ import com.systemtron.finalapp.R
 
 class SplashActivity : AppCompatActivity() {
 
+
     private var mDelayHandler: Handler? = null
     private val SPLASH_DELAY: Long = 5000
 
@@ -18,6 +19,7 @@ class SplashActivity : AppCompatActivity() {
             finish()
         }
     }
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
